@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jpa.entity.Department;
-import com.jpa.entity.Employee;
 import com.jpa.repository.DepartmentRepository;
 import com.jpa.repository.EmployeeRepository;
 
@@ -23,9 +22,7 @@ public class DepartmentController {
 	@PostMapping(value="/saveDepartment")
 	public Department saveDepartment(@RequestBody Department department) {
 		
-		for(Employee emp : department.getEmployeeList()) {
-			employeeRepository.save(emp);
-		}
+		
 		
 		return departmentRepository.save(department);
 	}
